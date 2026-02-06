@@ -1,0 +1,39 @@
+name: React Build Workflow
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository code
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          cat >>~/.ssh/config <<END
+          Host production
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/id_rsa
+            StrictHostKeyChecking no
+          END
+
+      - name: Checkout branch
+        run: ssh production "cd ${{ secrets.PROJECT_PATH }} && echo Checking out branch ${{ github.ref_name }} && git pull && git checkout -f ${{ github.ref_name }} && git pull"
+
+      - name: Npm install
+        run: ssh production "cd ${{ secrets.PROJECT_PATH }} && npm install"
+
+      - name: Npm build
+        run: ssh production "cd ${{ secrets.PROJECT_PATH }} && npm run build"
+
+      - name: update server version
+        run: ssh production "cd ${{ secrets.PROJECT_PATH }} && cp -r dist/* v-latest/"
