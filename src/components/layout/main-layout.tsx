@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { Header } from './Header';
-import { Sidebar } from './Sidebar';
+import { Header } from './header.tsx';
+import { Sidebar } from './sidebar.tsx';
 
 interface MainLayoutProps {
     children: React.ReactNode;

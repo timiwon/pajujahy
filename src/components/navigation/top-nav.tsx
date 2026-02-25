@@ -6,6 +6,7 @@ import {
     NavigationMenuItem, NavigationMenuLink
 } from "@/components/ui/navigation-menu.tsx";
 import { Badge } from "@/components/ui/badge.tsx";
+import { LanguageToggle } from "@/components/layout/language-toggle.tsx";
 
 export function TopNav() {
     return (
@@ -15,6 +16,7 @@ export function TopNav() {
                 <FeaturesNavMobile/>
 
                 <ul className="flex items-center justify-end">
+                    <LanguageToggle />
                     <DarkModeSwitch />
 
                     <li className="min-w-0">

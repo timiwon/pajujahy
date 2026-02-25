@@ -41,7 +41,7 @@ function DarkModeSwitch({
             <SwitchPrimitive.Thumb
                 className={cn(
                     // ... existing Thumb classes
-                    "bg-yellow-500 data-[state=checked]:bg-gray-600 pointer-events-none flex h-5 w-5 items-center justify-center rounded-full shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-6 data-[state=unchecked]:translate-x-0",
+                    "bg-yellow-500 data-[state=checked]:bg-gray-600 pointer-events-none flex h-5 w-5 items-center justify-center rounded-full shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-6 rtl:data-[state=checked]:-translate-x-6 data-[state=unchecked]:translate-x-0 rtl:data-[state=unchecked]:-translate-x-0",
                 )}
             >
                 {!darkMode && (
