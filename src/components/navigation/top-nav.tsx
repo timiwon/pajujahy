@@ -7,17 +7,25 @@ import {
 } from "@/components/ui/navigation-menu.tsx";
 import { Badge } from "@/components/ui/badge.tsx";
 import { LanguageToggle } from "@/components/layout/language-toggle.tsx";
+import { startCase } from "@/lib/utils.ts";
 
 export function TopNav() {
+    const { t } = useTranslation();
+
     return (
         <nav className="w-full pr-1">
             <div className="grid basis-full grid-cols-1 sm:grid-cols-2">
                 <FeaturesNav />
-                <FeaturesNavMobile/>
+                <FeaturesNavMobile />
 
                 <ul className="flex items-center justify-end">
-                    <LanguageToggle />
-                    <DarkModeSwitch />
+                    <li className="min-w-0">
+                        <LanguageToggle />
+                    </li>
+
+                    <li className="min-w-0">
+                        <DarkModeSwitch />
+                    </li>
 
                     <li className="min-w-0">
                         <a
@@ -40,8 +48,8 @@ export function TopNav() {
                                 />
                             </svg>
                             <span className="block w-full truncate overflow-hidden text-ellipsis whitespace-nowrap">
-                                    timiwon@gmail.com
-                                </span>
+                                timiwon@gmail.com
+                            </span>
                         </a>
                     </li>
 
@@ -64,7 +72,7 @@ export function TopNav() {
                                     d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
                                 />
                             </svg>
-                            <span>Logout</span>
+                            <span>{startCase(t("logout"))}</span>
                         </a>
                     </li>
                 </ul>
@@ -74,30 +82,35 @@ export function TopNav() {
 }
 
 function FeaturesNav() {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const navItems = [
         {
             id: "personalProduct",
             title: "Managing a single product",
             href: "/domain",
-            label: "Manage product",
+            label: startCase(t("manage_product")),
             active: true,
         },
         {
             id: "productList",
             title: "View all products",
             href: "/product/overview",
-            label: "All products",
+            label: startCase(t("all_products")),
         },
         {
             id: "personalFinance",
             title: "My financial data",
             href: "/clientdata/finance",
-            label: "Finances",
-            badge: "New",
+            label: startCase(t("finances")),
+            badge: startCase(t("new")),
         },
-        { id: "support", title: "Support", href: "/support", label: "Support" },
+        {
+            id: "support",
+            title: "Support",
+            href: "/support",
+            label: startCase(t("support")),
+        },
     ];
 
     return (
@@ -128,22 +141,29 @@ function FeaturesNav() {
 }
 
 function FeaturesNavMobile() {
+    const { t } = useTranslation();
+
     const navItems = [
         {
             id: "personalProduct",
             title: "Managing a single product",
             href: "/domain",
-            label: "Manage product",
+            label: startCase(t("manage_product")),
             active: true,
         },
         {
             id: "personalFinance",
             title: "My financial data",
             href: "/clientdata/finance",
-            label: "Finances",
-            badge: "New",
+            label: startCase(t("finances")),
+            badge: startCase(t("new")),
         },
-        { id: "support", title: "Support", href: "/support", label: "Support" },
+        {
+            id: "support",
+            title: "Support",
+            href: "/support",
+            label: startCase(t("support")),
+        },
     ];
 
     return (

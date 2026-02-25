@@ -2,17 +2,28 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import en from "./locales/en.json";
-import ar from "./locales/ar.json";
+import deCommon from "./locales/de/common.json";
+import enCommon from "./locales/en/common.json";
+import vnCommon from "./locales/vn/common.json";
 
 i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
+        lng: "de",
+        fallbackLng: "de",
+        ns: ["common"],
+        defaultNS: "common",
         resources: {
-            en: { translation: en },
-            ar: { translation: ar },
+            de: {
+                common: deCommon,
+            },
+            en: {
+                common: enCommon,
+            },
+            vn: {
+                common: vnCommon,
+            },
         },
-        fallbackLng: "en",
         interpolation: {
             escapeValue: false,
         },
