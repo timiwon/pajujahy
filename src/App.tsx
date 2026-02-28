@@ -1,4 +1,5 @@
 import "./App.css";
+import "flag-icons/css/flag-icons.min.css";
 import "./i18n";
 
 import { DirectionProvider } from "@radix-ui/react-direction";

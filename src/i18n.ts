@@ -9,8 +9,8 @@ import vnCommon from "./locales/vn/common.json";
 i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        lng: "de",
-        fallbackLng: "de",
+        lng: "en",
+        fallbackLng: "en",
         ns: ["common"],
         defaultNS: "common",
         resources: {
