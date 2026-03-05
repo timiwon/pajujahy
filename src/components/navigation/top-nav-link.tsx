@@ -19,28 +19,31 @@ export function TopNavLink({
 }: TopNavLinkProps) {
     return (
         <NavigationMenuItem className="h-16">
-            <Button
+            {/*<Button
                 variant="link"
                 className={cn(
                     "h-full rounded-none border-gray-300 hover:border-b-3 hover:no-underline!",
                     className,
                 )}
+            >*/}
+            <a
+                href={href}
+                className="px-2 text-md text-primary flex h-full items-center rounded-none border-gray-300 pb-2 no-underline! hover:border-b-2 hover:pb-1"
             >
-                <a href={href} className="text-md text-primary">
-                    <Typography variant="link" className="flex items-center">
-                        {children}
-                        {badge && (
-                            <Badge
-                                variant="warning"
-                                size="xs"
-                                className="top-1.25 absolute right-3.5 inline-flex"
-                            >
-                                {badge}
-                            </Badge>
-                        )}
-                    </Typography>
-                </a>
-            </Button>
+                <Typography variant="link" className="flex items-center">
+                    {children}
+                    {badge && (
+                        <Badge
+                            variant="warning"
+                            size="xs"
+                            className="absolute top-1.25 right-3.5 inline-flex"
+                        >
+                            {badge}
+                        </Badge>
+                    )}
+                </Typography>
+            </a>
+            {/*</Button>*/}
         </NavigationMenuItem>
     );
 }

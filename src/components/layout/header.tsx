@@ -1,4 +1,4 @@
-import { TopNav } from '../navigation/top-nav.tsx';
+import { TopNav } from '@/components/navigation/top-nav.tsx';
 
 export function Header() {
   return (

@@ -1,13 +1,9 @@
-import * as React from "react";
+import { Outlet } from "react-router";
 
-import { Header } from './header.tsx';
-import { Sidebar } from './sidebar.tsx';
+import { Header } from '@/components/layout/header.tsx';
+import { Sidebar } from '@/components/layout/sidebar.tsx';
 
-interface MainLayoutProps {
-    children: React.ReactNode;
-}
-
-export function MainLayout({ children }: MainLayoutProps) {
+export function Layout() {
     return (
         <div id="wrapper">
             <Header />
@@ -17,7 +13,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
                 <section id="content" className="basis-full xl:basis-[calc(100%-256px)] xl:flex justify-center relative shrink-0 grow-0 mx-auto xl:mx-0">
                     <div className="clearfix py-10 xl:px-0 mx-auto">
-                        {children}
+                        <Outlet />
                     </div>
                 </section>
             </div>

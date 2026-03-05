@@ -1,13 +1,13 @@
 import "./App.css";
 import "flag-icons/css/flag-icons.min.css";
 import "./i18n";
+import { RouterProvider } from "react-router/dom";
 
 import { DirectionProvider } from "@radix-ui/react-direction";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
-import { MainLayout } from "@/components/layout/main-layout.tsx";
-import { OverviewPage } from "@/pages/overview-page.tsx";
+import { router } from "@/routes.ts";
 
 function App() {
     const { i18n } = useTranslation();
@@ -21,9 +21,7 @@ function App() {
 
     return (
         <DirectionProvider dir={direction}>
-            <MainLayout>
-                <OverviewPage />
-            </MainLayout>
+            <RouterProvider router={router} />
         </DirectionProvider>
     );
 }
