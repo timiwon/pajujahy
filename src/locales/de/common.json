@@ -4,5 +4,19 @@
     "finances": "finanzen",
     "new": "neu",
     "support": "unterstützung",
-    "logout": "abmelden"
+    "logout": "abmelden",
+    "menu": "menü",
+    "language": "sprache",
+    "dark_mode": "dunkelmodus",
+    "webhosting": "webhosting",
+    "overview": "übersicht",
+    "domains": "domains",
+    "subdomains": "subdomains",
+    "redirects": "weiterleitungen",
+    "dns_editor": "DNS-editor",
+    "file_manager": "dateimanager",
+    "ftp": "FTP",
+    "email": "e-mail",
+    "security": "sicherheit",
+    "database": "datenbank"
 }

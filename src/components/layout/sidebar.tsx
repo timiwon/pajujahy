@@ -1,8 +1,5 @@
-
+// This component is deprecated. Use ProductSidebar instead.
+// Kept to avoid breaking any remaining imports.
 export function Sidebar() {
-  return (
-    <section id='sidebar' className="hidden xl:flex">
-        sidebar
-    </section>
-  );
+    return null;
 }

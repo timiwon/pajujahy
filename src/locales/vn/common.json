@@ -4,5 +4,19 @@
     "finances": "tài chính",
     "new": "mới",
     "support": "hỗ trợ",
-    "logout": "đăng xuất"
+    "logout": "đăng xuất",
+    "menu": "menu",
+    "language": "ngôn ngữ",
+    "dark_mode": "chế độ tối",
+    "webhosting": "webhosting",
+    "overview": "tổng quan",
+    "domains": "tên miền",
+    "subdomains": "tên miền phụ",
+    "redirects": "chuyển hướng",
+    "dns_editor": "trình chỉnh sửa DNS",
+    "file_manager": "quản lý tệp",
+    "ftp": "FTP",
+    "email": "e-mail",
+    "security": "bảo mật",
+    "database": "cơ sở dữ liệu"
 }

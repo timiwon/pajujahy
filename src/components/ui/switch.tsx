@@ -12,23 +12,23 @@ function DarkModeSwitch({
 }: React.ComponentProps<typeof SwitchPrimitive.Root> & {
     size?: "sm" | "default";
 }) {
-    const [darkMode, setDarkMode] = useState(false);
-
-    const handleCheckedChange = (checked: boolean) => {
-        setDarkMode(checked);
-    };
+    const [darkMode, setDarkMode] = useState(() => {
+        const stored = localStorage.getItem("theme");
+        if (stored) return stored === "dark";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    });
 
     useEffect(() => {
         const newTheme = darkMode ? "dark" : "light";
         document.documentElement.classList.remove("light", "dark");
         document.documentElement.classList.add(newTheme);
-        document.cookie = `theme=${newTheme}; path=/; max-age=31536000`;
+        localStorage.setItem("theme", newTheme);
     }, [darkMode]);
 
     return (
         <SwitchPrimitive.Root
             checked={darkMode}
-            onCheckedChange={handleCheckedChange}
+            onCheckedChange={setDarkMode}
             data-slot="switch"
             data-size={size}
             className={cn(
