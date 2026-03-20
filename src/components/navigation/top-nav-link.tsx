@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
@@ -20,12 +20,17 @@ export function TopNavLink({
 }: TopNavLinkProps) {
     return (
         <NavigationMenuItem className="h-16">
-            <Link
+            <NavLink
                 to={href}
-                className={cn(
-                    "text-md text-primary flex h-full items-center rounded-none border-gray-300 px-2 pb-2 no-underline! hover:border-b-2 hover:pb-1",
-                    className,
-                )}
+                className={({ isActive }) =>
+                    cn(
+                        "text-md text-primary flex h-full items-center rounded-none px-2 no-underline! border-b-2",
+                        isActive
+                            ? "border-primary"
+                            : "border-transparent hover:border-gray-300",
+                        className,
+                    )
+                }
             >
                 <Typography variant="link" className="flex items-center">
                     {children}
@@ -39,7 +44,7 @@ export function TopNavLink({
                         </Badge>
                     )}
                 </Typography>
-            </Link>
+            </NavLink>
         </NavigationMenuItem>
     );
 }
