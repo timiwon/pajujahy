@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown, Search, Flower2 } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-
-const products = [{ id: "pajujahy", name: "pajujahy", type: "webhosting" }];
+import { useProducts } from "@/hooks/use-products";
 
 export function ProductSwitcher() {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
+    const { products } = useProducts();
 
     return (
         <div className="border-b">
@@ -15,7 +14,7 @@ export function ProductSwitcher() {
                 className="flex w-full items-center gap-3 px-4 py-3 text-sm font-semibold hover:bg-accent"
             >
                 <Flower2 className="h-6 w-6 shrink-0 text-rose-400" />
-                <span>pajujahy</span>
+                <span>{products[0]?.name}</span>
                 {open ? (
                     <ChevronUp className="ml-auto h-4 w-4 text-muted-foreground" />
                 ) : (
