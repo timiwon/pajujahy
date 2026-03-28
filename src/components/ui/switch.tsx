@@ -54,10 +54,8 @@ function DarkModeSwitch({
                 )}
                 {darkMode && (
                     <Moon
-                        className="h-5 w-5 fill-gray-200 text-gray-600"
-                        strokeWidth={2}
-                        absoluteStrokeWidth={true}
-                        fill="yellow"
+                        className="h-3.5 w-3.5 fill-white text-white"
+                        strokeWidth={1.5}
                         data-state={props.checked ? "checked" : "unchecked"}
                     />
                 )}

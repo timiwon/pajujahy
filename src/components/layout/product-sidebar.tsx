@@ -1,26 +1,28 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-    Globe,
     Server,
-    FolderOpen,
-    FileCode,
-    ArrowRightLeft,
-    Layers,
-    Upload,
     Mail,
     Shield,
     Database,
     ChevronDown,
+    ExternalLink,
 } from "lucide-react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
+
 import { cn, startCase } from "@/lib/utils";
-import { ProductSelector } from "@/components/layout/product-selector";
+import { ProductSwitcher } from "@/components/layout/product-switcher";
+
+interface SidebarItem {
+    labelKey: string;
+    href: string;
+    external?: boolean;
+}
 
 interface SidebarSection {
     titleKey: string;
     icon: React.ElementType;
-    items: { labelKey: string; href: string; icon: React.ElementType }[];
+    items: SidebarItem[];
     defaultOpen?: boolean;
 }
 
@@ -30,29 +32,13 @@ const sections: SidebarSection[] = [
         icon: Server,
         defaultOpen: true,
         items: [
-            { labelKey: "overview", href: "/domain", icon: Layers },
-            { labelKey: "domains", href: "/domain/domains", icon: Globe },
-            {
-                labelKey: "subdomains",
-                href: "/domain/subdomains",
-                icon: Globe,
-            },
-            {
-                labelKey: "redirects",
-                href: "/domain/redirects",
-                icon: ArrowRightLeft,
-            },
-            {
-                labelKey: "dns_editor",
-                href: "/domain/dns",
-                icon: FileCode,
-            },
-            {
-                labelKey: "file_manager",
-                href: "/domain/files",
-                icon: FolderOpen,
-            },
-            { labelKey: "ftp", href: "/domain/ftp", icon: Upload },
+            { labelKey: "overview", href: "/domain" },
+            { labelKey: "domains", href: "/domain/domains" },
+            { labelKey: "subdomains", href: "/domain/subdomains" },
+            { labelKey: "redirects", href: "/domain/redirects" },
+            { labelKey: "dns_editor", href: "/domain/dns" },
+            { labelKey: "file_manager", href: "/domain/files", external: true },
+            { labelKey: "ftp", href: "/domain/ftp" },
         ],
     },
     {
@@ -75,7 +61,7 @@ const sections: SidebarSection[] = [
 export function ProductSidebar() {
     return (
         <aside className="hidden w-64 shrink-0 border-r bg-card xl:block">
-            <ProductSelector />
+            <ProductSwitcher />
             <nav className="flex flex-col py-2">
                 {sections.map((section) => (
                     <SidebarSectionGroup
@@ -116,19 +102,46 @@ function SidebarSectionGroup({ section }: { section: SidebarSection }) {
                 )}
             </button>
 
-            {open && hasItems && (
-                <ul className="flex flex-col">
+            {hasItems && (
+                <div
+                    className="grid transition-[grid-template-rows] duration-500 ease-in-out"
+                    style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+                >
+                <ul className="flex flex-col overflow-hidden">
                     {section.items.map((item) => (
                         <li key={item.href}>
-                            <Link
+                            <NavLink
                                 to={item.href}
-                                className="flex items-center gap-2 py-2 pr-4 pl-10 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                                end
+                                className={({ isActive }) =>
+                                    cn(
+                                        "flex items-center justify-between py-2 pr-4 pl-10 text-sm transition-colors hover:text-foreground",
+                                        isActive
+                                            ? "text-foreground"
+                                            : "text-muted-foreground",
+                                    )
+                                }
                             >
-                                {startCase(t(item.labelKey))}
-                            </Link>
+                                {({ isActive }) => (
+                                    <>
+                                        <span
+                                            className={cn(
+                                                isActive &&
+                                                    "border-b-2 border-primary pb-0.5",
+                                            )}
+                                        >
+                                            {startCase(t(item.labelKey))}
+                                        </span>
+                                        {item.external && (
+                                            <ExternalLink className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                                        )}
+                                    </>
+                                )}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>
+                </div>
             )}
         </div>
     );
