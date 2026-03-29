@@ -10,18 +10,21 @@ type TopNavLinkProps = React.ComponentProps<typeof Typography> & {
     href: string;
     className?: string;
     badge?: string;
+    end?: boolean;
 };
 
 export function TopNavLink({
     href,
     className,
     badge,
+    end,
     children,
 }: TopNavLinkProps) {
     return (
         <NavigationMenuItem className="h-16">
             <NavLink
                 to={href}
+                end={end}
                 className={({ isActive }) =>
                     cn(
                         "text-md text-primary flex h-full items-center rounded-none px-2 no-underline! border-b-2",

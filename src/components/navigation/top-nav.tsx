@@ -27,6 +27,7 @@ export function TopNav() {
 
                     <TopNavLink
                         href="/clientdata"
+                        end
                         className="group flex items-center space-x-1 px-1"
                     >
                         <svg
@@ -50,6 +51,7 @@ export function TopNav() {
 
                     <TopNavLink
                         href="/auth/index/dologout"
+                        end
                         className="group flex shrink-0 items-center space-x-1 px-1"
                     >
                         <svg
