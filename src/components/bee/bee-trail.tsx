@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useAnimationFrame } from "motion/react";
 
-import { BeeSvg } from "@/components/common/bee-svg";
+import { BeeSvg } from "@/components/bee/bee-svg";
 
 const SPEED = 0.13;         // px per ms
 const MAX_TURN = 0.003;     // max radians per ms
@@ -17,7 +17,7 @@ function clamp(v: number, lo: number, hi: number): number {
     return v < lo ? lo : v > hi ? hi : v;
 }
 
-export function ButterflyArc() {
+export function BeeTrail() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const x       = useMotionValue(-100);
     const y       = useMotionValue(-100);
@@ -142,7 +142,7 @@ export function ButterflyArc() {
             <canvas ref={canvasRef} className="absolute inset-0" />
 
             {/*
-             * x / y motion values position the butterfly (no re-render on move).
+             * x / y motion values position the bee (no re-render on move).
              * animate drives the wing-flap independently via motion's animation engine.
              * Both compose into a single CSS transform string.
              */}

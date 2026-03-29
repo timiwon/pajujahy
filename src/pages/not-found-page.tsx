@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
-import { ButterflyArc } from "@/components/common/butterfly-arc";
+import { BeeTrail } from "@/components/bee/bee-trail";
 
 export function NotFoundPage() {
     const { t } = useTranslation();
@@ -27,7 +27,7 @@ export function NotFoundPage() {
                 </p>
             </div>
 
-            <ButterflyArc />
+            <BeeTrail />
         </main>
     );
 }
