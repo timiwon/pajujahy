@@ -22,5 +22,17 @@
     "not_found_title": "Oh, the requested page doesn't exist.",
     "not_found_before_link": "We recommend visiting our",
     "not_found_after_link": ", you may find what you're looking for there.",
-    "not_found_link": "homepage"
+    "not_found_link": "homepage",
+    "login_title": "my.cyon Login",
+    "login_subtitle": "Enter your credentials to continue",
+    "login_email_label": "Email address",
+    "login_password_label": "Password",
+    "login_submit": "Sign in to my.cyon",
+    "login_loading": "Signing in…",
+    "login_forgot_password": "Forgot password?",
+    "login_webmail": "Webmail Login",
+    "login_show_password": "Show password",
+    "login_hide_password": "Hide password",
+    "login_hint": "Use any email with password: password",
+    "login_error_generic": "Something went wrong. Please try again."
 }

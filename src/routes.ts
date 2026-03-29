@@ -4,28 +4,39 @@ import { DashboardLayout } from "@/pages/dashboard-layout";
 import { ProductLayout } from "@/pages/product-layout";
 import { OverviewPage } from "@/pages/overview-page";
 import { NotFoundPage } from "@/pages/not-found-page";
+import { LoginPage } from "@/pages/login-page";
+import { ProtectedRoute } from "@/components/auth/protected-route";
 
 export const router = createBrowserRouter([
     {
+        path: "/login",
+        Component: LoginPage,
+    },
+    {
         path: "/",
-        Component: RootLayout,
+        Component: ProtectedRoute,
         children: [
             {
-                // Dashboard layout — no sidebar, full-width
-                Component: DashboardLayout,
+                Component: RootLayout,
                 children: [
-                    { index: true, Component: OverviewPage },
+                    {
+                        // Dashboard layout — no sidebar, full-width
+                        Component: DashboardLayout,
+                        children: [
+                            { index: true, Component: OverviewPage },
+                        ],
+                    },
+                    {
+                        // Product layout — sidebar + product selector
+                        path: "domain",
+                        Component: ProductLayout,
+                        children: [
+                            { index: true, element: null },
+                        ],
+                    },
+                    { path: "*", Component: NotFoundPage },
                 ],
             },
-            {
-                // Product layout — sidebar + product selector
-                path: "domain",
-                Component: ProductLayout,
-                children: [
-                    { index: true, element: null },
-                ],
-            },
-            { path: "*", Component: NotFoundPage },
         ],
     },
 ]);

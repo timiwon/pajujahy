@@ -15,30 +15,22 @@ import {
     SheetClose,
 } from "@/components/ui/sheet";
 import { startCase } from "@/lib/utils";
+import type { NavItem } from "@/types/navigation";
 
-export function MobileNav() {
+interface MobileNavProps {
+    navItems: NavItem[];
+    userEmail?: string;
+    onLogout: () => void;
+}
+
+export function MobileNav({ navItems, userEmail, onLogout }: MobileNavProps) {
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
 
-    const navItems = [
-        {
-            href: "/domain",
-            label: startCase(t("manage_product")),
-        },
-        {
-            href: "/product/overview",
-            label: startCase(t("all_products")),
-        },
-        {
-            href: "/clientdata/finance",
-            label: startCase(t("finances")),
-            badge: startCase(t("new")),
-        },
-        {
-            href: "/support",
-            label: startCase(t("support")),
-        },
-    ];
+    function handleLogout() {
+        setOpen(false);
+        onLogout();
+    }
 
     return (
         <div className="flex sm:hidden">
@@ -63,9 +55,7 @@ export function MobileNav() {
                         {/* User info */}
                         <div className="flex items-center gap-3 border-b px-4 py-3">
                             <User className="h-5 w-5 shrink-0 text-muted-foreground" />
-                            <span className="truncate text-sm">
-                                timiwon@gmail.com
-                            </span>
+                            <span className="truncate text-sm">{userEmail}</span>
                         </div>
 
                         {/* Navigation links */}
@@ -79,10 +69,7 @@ export function MobileNav() {
                                         >
                                             {item.label}
                                             {item.badge && (
-                                                <Badge
-                                                    variant="warning"
-                                                    size="xs"
-                                                >
+                                                <Badge variant="warning" size="xs">
                                                     {item.badge}
                                                 </Badge>
                                             )}
@@ -108,13 +95,13 @@ export function MobileNav() {
                                 <DarkModeSwitch />
                             </div>
 
-                            <a
-                                href="/auth/index/dologout"
-                                className="flex items-center gap-2 px-4 py-3 text-sm text-destructive transition-colors hover:bg-accent"
+                            <button
+                                onClick={handleLogout}
+                                className="flex w-full items-center gap-2 px-4 py-3 text-sm text-destructive transition-colors hover:bg-accent"
                             >
                                 <LogOut className="h-4 w-4" />
                                 {startCase(t("logout"))}
-                            </a>
+                            </button>
                         </div>
                     </nav>
                 </SheetContent>

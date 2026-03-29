@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
 import { router } from "@/routes.ts";
+import { AuthProvider } from "@/context/auth-context";
 
 function App() {
     const { i18n } = useTranslation();
@@ -21,7 +22,9 @@ function App() {
 
     return (
         <DirectionProvider dir={direction}>
-            <RouterProvider router={router} />
+            <AuthProvider>
+                <RouterProvider router={router} />
+            </AuthProvider>
         </DirectionProvider>
     );
 }

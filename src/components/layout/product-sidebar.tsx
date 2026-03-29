@@ -11,7 +11,7 @@ import {
 import { NavLink } from "react-router";
 
 import { cn, startCase } from "@/lib/utils";
-import { ProductSwitcher } from "@/components/layout/product-switcher";
+import { ProductSwitcherContainer } from "@/components/layout/product-switcher-container";
 
 interface SidebarItem {
     labelKey: string;
@@ -61,7 +61,7 @@ const sections: SidebarSection[] = [
 export function ProductSidebar() {
     return (
         <aside className="hidden w-64 shrink-0 border-r bg-card xl:block">
-            <ProductSwitcher />
+            <ProductSwitcherContainer />
             <nav className="flex flex-col py-2">
                 {sections.map((section) => (
                     <SidebarSectionGroup

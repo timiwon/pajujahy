@@ -22,5 +22,17 @@
     "not_found_title": "Oh je, die angeforderte Seite existiert nicht.",
     "not_found_before_link": "Am besten besuchst du unsere",
     "not_found_after_link": ", ev. findest du die gewünschte Information auch an einer anderen Stelle.",
-    "not_found_link": "Startseite"
+    "not_found_link": "Startseite",
+    "login_title": "my.cyon-Login",
+    "login_subtitle": "Gib deine Zugangsdaten ein",
+    "login_email_label": "E-Mail-Adresse",
+    "login_password_label": "Passwort",
+    "login_submit": "Ins my.cyon einloggen",
+    "login_loading": "Wird angemeldet…",
+    "login_forgot_password": "Passwort vergessen?",
+    "login_webmail": "Zum Webmail Login",
+    "login_show_password": "Passwort anzeigen",
+    "login_hide_password": "Passwort ausblenden",
+    "login_hint": "Beliebige E-Mail mit Passwort: password",
+    "login_error_generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
 }

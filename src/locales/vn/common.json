@@ -22,5 +22,17 @@
     "not_found_title": "Ôi, trang được yêu cầu không tồn tại.",
     "not_found_before_link": "Chúng tôi khuyên bạn hãy ghé thăm",
     "not_found_after_link": ", có thể bạn sẽ tìm thấy thông tin mình cần ở đó.",
-    "not_found_link": "trang chủ"
+    "not_found_link": "trang chủ",
+    "login_title": "my.cyon Login",
+    "login_subtitle": "Nhập thông tin đăng nhập để tiếp tục",
+    "login_email_label": "Địa chỉ email",
+    "login_password_label": "Mật khẩu",
+    "login_submit": "Đăng nhập my.cyon",
+    "login_loading": "Đang đăng nhập…",
+    "login_forgot_password": "Quên mật khẩu?",
+    "login_webmail": "Đăng nhập Webmail",
+    "login_show_password": "Hiện mật khẩu",
+    "login_hide_password": "Ẩn mật khẩu",
+    "login_hint": "Dùng bất kỳ email với mật khẩu: password",
+    "login_error_generic": "Đã xảy ra lỗi. Vui lòng thử lại."
 }

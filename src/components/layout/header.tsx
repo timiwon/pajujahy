@@ -1,16 +1,16 @@
 import { Link } from "react-router";
 
-import { TopNav } from "@/components/navigation/top-nav";
-import { MobileNav } from "@/components/navigation/mobile-nav";
+import { TopNavContainer } from "@/components/navigation/top-nav-container";
+import { MobileNavContainer } from "@/components/navigation/mobile-nav-container";
 
 export function Header() {
     return (
         <header>
             <div className="flex w-full flex-row items-center border-b">
                 <Logo />
-                <TopNav />
+                <TopNavContainer />
                 <div className="ml-auto pr-2 sm:hidden">
-                    <MobileNav />
+                    <MobileNavContainer />
                 </div>
             </div>
         </header>
