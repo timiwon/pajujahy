@@ -3,6 +3,7 @@ import { RootLayout } from "@/pages/layout";
 import { DashboardLayout } from "@/pages/dashboard-layout";
 import { ProductLayout } from "@/pages/product-layout";
 import { OverviewPage } from "@/pages/overview-page";
+import { NotFoundPage } from "@/pages/not-found-page";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
                     { index: true, element: null },
                 ],
             },
+            { path: "*", Component: NotFoundPage },
         ],
     },
 ]);

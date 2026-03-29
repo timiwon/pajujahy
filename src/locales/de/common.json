@@ -18,5 +18,9 @@
     "ftp": "FTP",
     "email": "e-mail",
     "security": "sicherheit",
-    "database": "datenbank"
+    "database": "datenbank",
+    "not_found_title": "Oh je, die angeforderte Seite existiert nicht.",
+    "not_found_before_link": "Am besten besuchst du unsere",
+    "not_found_after_link": ", ev. findest du die gewünschte Information auch an einer anderen Stelle.",
+    "not_found_link": "Startseite"
 }

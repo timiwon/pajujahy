@@ -18,5 +18,9 @@
     "ftp": "FTP",
     "email": "e-mail",
     "security": "security",
-    "database": "database"
+    "database": "database",
+    "not_found_title": "Oh, the requested page doesn't exist.",
+    "not_found_before_link": "We recommend visiting our",
+    "not_found_after_link": ", you may find what you're looking for there.",
+    "not_found_link": "homepage"
 }

@@ -18,5 +18,9 @@
     "ftp": "FTP",
     "email": "e-mail",
     "security": "bảo mật",
-    "database": "cơ sở dữ liệu"
+    "database": "cơ sở dữ liệu",
+    "not_found_title": "Ôi, trang được yêu cầu không tồn tại.",
+    "not_found_before_link": "Chúng tôi khuyên bạn hãy ghé thăm",
+    "not_found_after_link": ", có thể bạn sẽ tìm thấy thông tin mình cần ở đó.",
+    "not_found_link": "trang chủ"
 }
