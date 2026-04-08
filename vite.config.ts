@@ -1,7 +1,8 @@
 import path from "path"
 import tailwindcss from "@tailwindcss/vite"
 import { defineConfig, type Plugin } from 'vite'
-import react from '@vitejs/plugin-react'
+import react, { reactCompilerPreset } from '@vitejs/plugin-react'
+import babel from '@rolldown/plugin-babel'
 
 /** Serve index.html for any non-asset route so React Router handles 404s. */
 function spaFallback(): Plugin {
@@ -19,11 +20,8 @@ function spaFallback(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react({
-      babel: {
-        plugins: [['babel-plugin-react-compiler']],
-      },
-    }),
+    react(),
+    babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
     spaFallback(),
   ],
